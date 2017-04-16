@@ -49,14 +49,14 @@ namespace Anagram
         /// <param name="wordsN">Words(n) to compare</param>
         /// <param name="caseSensitive">Turn on/off case sensitive mode</param>
         /// <returns>Boolean indicating success/failure</returns>
-        public static bool AnagramChecker(string words1, string[] wordsN,bool caseSensitive=true)
+        public static bool AnagramChecker(string words1, string[] wordsN,bool caseSensitive=false)
         {
             if (string.IsNullOrEmpty(words1))
                 throw new ArgumentNullException("words1");
             if (wordsN.Length == 0)
                 throw new ArgumentNullException("wordsN");
             bool isTrue = true;
-            if(caseSensitive)
+            if(!caseSensitive)
             {
                 words1 = new string(words1.ToCharArray().OrderBy(x => x).ToArray()).ToLower();
                 foreach(string word in wordsN)
