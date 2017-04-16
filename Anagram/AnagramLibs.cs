@@ -17,8 +17,8 @@ namespace Anagram
         {
             if (string.IsNullOrEmpty(words))
                 throw new ArgumentNullException("words");
-            int iteratationCount = words.Length;
-            string[] resultAnagram = new string[iteratationCount * (iteratationCount - 1)];
+            int iterationCount = words.Length;
+            string[] resultAnagram = new string[iterationCount * (iterationCount - 1)];
             int globalCounter = 0;
             Func<string, string> swapper = (input) =>
             {
@@ -35,7 +35,7 @@ namespace Anagram
                 }
                 return result;
             };
-            for (int i = 1; i <= iteratationCount; i++)
+            for (int i = 1; i <= iterationCount; i++)
             {
                 words = swapper(words);
             }
