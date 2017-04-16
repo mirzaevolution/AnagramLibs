@@ -11,11 +11,12 @@ namespace Anagram
         /// <summary>
         /// Find an anagram of given words
         /// </summary>
-        /// <param name="words">Given words</param>
+        /// <param name="words">Given words cannot be null and should be greater than 2 char(s)</param>
         /// <returns>Anagram table in array of string</returns>
         public static string[] Anagram(string words)
         {
-
+            if (string.IsNullOrEmpty(words))
+                throw new ArgumentNullException("words");
             int iteratationCount = words.Length;
             string[] resultAnagram = new string[iteratationCount * (iteratationCount - 1)];
             int globalCounter = 0;
